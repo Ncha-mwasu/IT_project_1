@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Questions - EME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:"Libre Baskerville", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #b1b1b1ff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #1e3a5f 0%, #2563eb 100%);
+            padding: 3px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .profile {
+            border-radius: 50%;
+            border: 2px #b1b1b1ff solid;
+        }
+
+        .icon-btn:hover {
+
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .back-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            color: #1e3a5f;
+        }
+
+        .page-title-section {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .page-title-section h1 {
+            color: #1e3a5f;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .page-title-section p {
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .explore-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .explore-btn:hover {
+            background: #2563eb;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .top-row{
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .sidebar h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .level-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .level-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .level-100 { background: #3b82f6; color: white; }
+        .level-200 { background: #3b82f6; color: white; }
+        .level-300 { background: #3b82f6; color: white; }
+        .level-400 { background: #3b82f6; color: white; }
+
+        /* Semester Sections */
+
+
+        .semester {
+            background: rgba(212, 209, 209, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            border: 3px solid #3b82f6;
+        }
+
+        .semester h2 {
+            color: #1e3a5f;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-code {
+            font-weight: bold;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .course-name {
+            color: #4a5568;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+
+
+
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: flex;
+                gap: 10px;
+                overflow-x: auto;
+                padding: 15px;
+            }
+
+            .sidebar h3 {
+                display: none;
+            }
+
+            .level-btn {
+                min-width: 120px;
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .page-title-section h1 {
+                font-size: 24px;
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .page-title-section {
+                margin-left: 0;
+            }
+
+            .explore-btn {
+                width: 100%;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img class="eme-logo" style="width: 5.25em; height: 5.25em" src="../logo/eme logo.png"></div>
+        <div class="header-icons">
+            <div class="icon-btn" onclick="location.href='home_page.html'"><img class="home" style="width: 2em; height: 2em" src="../images/Icons/home.png"></div>
+            <div class="icon-btn"><img class="notifications" style="width: 2em; height: 2em" src="../images/Icons/bell.png"></div>
+            <div class="icon-btn" id="profile" onclick="location.href='profile.html'"><img class="profile" style="width: 2em; height: 2em" src="../images/Icons/profile.png"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="back-btn" onclick="location.href='home_page.html'">‹</div>
+            <div class="page-title-section">
+                <h1>Past Questions</h1>
+                <p>Your engineering journey starts here</p>
+            </div>
+            <button class="explore-btn">Explore Past Questions</button>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="top-row">
+            <aside class="sidebar">
+                <h3>Computer Engineering</h3>
+                <button class="level-btn level-100">100 level</button>
+                <button class="level-btn level-200">200 level</button>
+                <button class="level-btn level-300">300 level</button>
+                <button class="level-btn level-400">400 level</button>
+                <button class="level-btn level-400">500 level</button>
+            </aside>
+                <section class="semester">
+                    <h2>First Semester</h2>
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <div class="course-code" onclick="location.href='pq_page.html'">Phy 101</div>
+                            <div class="course-name" onclick="location.href='pq_page.html'">Introduction to<br>electromagnetism</div>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-code" onclick="location.href='pq_page.html'">Chm 111</div>
+                            <div class="course-name"onclick="location.href='pq_page.html'">Introduction to<br>Inorganic Chemistry</div>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-code" onclick="location.href='pq_page.html'">Chm 112</div>
+                            <div class="course-name"onclick="location.href='pq_page.html'">Introduction to<br>Organic Chemistry</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">GST 101</div>
+                            <div class="course-name">Reading Library</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Mat 101</div>
+                            <div class="course-name">Introduction to<br>Algebra</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Mat 111</div>
+                            <div class="course-name">Introduction to<br>Calculus</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="bottom-row">
+                <section class="semester">
+                    <h2>Second Semester</h2>
+                    <div class="courses-grid">
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Mat 121</div>
+                            <div class="course-name">Elementary Mathematics II <br>(Calculus)</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">GST 103</div>
+                            <div class="course-name">Nigerian People and Culture</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Phy 10</div>
+                            <div class="course-name">General Physics (Laboratory I) </div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Phy 123</div>
+                            <div class="course-name">Lorem ipsum is<br>simply dummy text<br>of the printing and<br>typesetting industry</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Phy 126</div>
+                            <div class="course-name">Lorem ipsum is<br>simply dummy text<br>of the printing and<br>typesetting industry</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">CHM 121</div>
+                            <div class="course-name">Lorem ipsum is<br>simply dummy text<br>of the printing and<br>typesetting industry</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Phy 101</div>
+                            <div class="course-name">Lorem ipsum is<br>simply dummy text<br>of the printing and<br>typesetting industry</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Phy 101</div>
+                            <div class="course-name">Lorem ipsum is<br>simply dummy text<br>of the printing and<br>typesetting industry</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Phy 101</div>
+                            <div class="course-name">Lorem ipsum is<br>simply dummy text<br>of the printing and<br>typesetting industry</div>
+                        </div>
+                        <div class="course-card" onclick="location.href='pq_page.html'">
+                            <div class="course-code">Phy 101</div>
+                            <div class="course-name">Lorem ipsum is<br>simply dummy text<br>of the printing and<br>typesetting industry</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Questions - EME</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #1e3a5f 0%, #2563eb 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .back-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            color: #1e3a5f;
+        }
+
+        .page-title-section {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .page-title-section h1 {
+            color: #1e3a5f;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .page-title-section p {
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .explore-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .explore-btn:hover {
+            background: #2563eb;
+        }
+
+        /* Questions Container */
+        .questions-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-title {
+            color: #1e3a5f;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+
+        .questions-box {
+            background: #e0f2fe;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .question-item {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .question-number {
+            color: #1e3a5f;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .question-text {
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+
+        .options {
+            padding-left: 15px;
+        }
+
+        .option {
+            color: #1e3a5f;
+            margin-bottom: 3px;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .option.selected {
+            background: #3b82f6;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: relative;
+            text-align: center;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+
+        .watermark-text {
+            font-size: 80px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1);
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #1e3a5f 0%, #2563eb 100%);
+            padding: 40px 20px 20px;
+            color: white;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 18px;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .page-title-section h1 {
+                font-size: 24px;
+            }
+
+            .questions-container {
+                padding: 25px;
+            }
+
+            .questions-box {
+                padding: 20px;
+            }
+
+            .course-title {
+                font-size: 20px;
+            }
+
+            .watermark-text {
+                font-size: 50px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .page-title-section {
+                margin-left: 0;
+            }
+
+            .explore-btn {
+                width: 100%;
+            }
+
+            .questions-container {
+                padding: 20px;
+            }
+
+            .watermark-text {
+                font-size: 30px;
+                letter-spacing: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">EME</div>
+        <div class="header-icons">
+            <div class="icon-btn">🏠</div>
+            <div class="icon-btn">🔔</div>
+            <div class="icon-btn">👤</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="back-btn">‹</div>
+            <div class="page-title-section">
+                <h1>Past Questions</h1>
+                <p>Your engineering journey starts here</p>
+            </div>
+            <button class="explore-btn">Explore more courses</button>
+        </div>
+
+        <div class="questions-container">
+            <h2 class="course-title">CPE 101 - Introduction to Computer Engineering</h2>
+            
+            <div class="questions-box">
+                <div class="question-item">
+                    <div class="question-number">1. Which of the following best defines computer engineering?</div>
+                    <div class="options">
+                        <div class="option">A. The study of software applications only</div>
+                        <div class="option">B. The design and integration of computer hardware and software systems</div>
+                        <div class="option">C. The study of electrical circuits only</div>
+                        <div class="option">D. Programming mobile devices</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-number">2. Which component is considered the "brain" of the computer?</div>
+                    <div class="options">
+                        <div class="option">A. Hard Disk</div>
+                        <div class="option">B. RAM</div>
+                        <div class="option">C. CPU</div>
+                        <div class="option">D. ROM</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-number">3. Which logic gate gives a HIGH output only when all its inputs are HIGH?</div>
+                    <div class="options">
+                        <div class="option">A. OR gate</div>
+                        <div class="option">B. AND gate</div>
+                        <div class="option">C. XOR gate</div>
+                        <div class="option">D. NAND gate</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-number">4. The binary equivalent of the decimal number 10 is:</div>
+                    <div class="options">
+                        <div class="option">A. 1001</div>
+                        <div class="option">B. 101</div>
+                        <div class="option">C. 1010</div>
+                        <div class="option">D. 1110</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-number">5. Which of the following is a non-volatile memory?</div>
+                    <div class="options">
+                        <div class="option">A. SRAM</div>
+                        <div class="option">B. Cache</div>
+                        <div class="option">C. RAM</div>
+                        <div class="option">D. ROM</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-number">6. What is the main function of the ALU in a CPU?</div>
+                    <div class="options">
+                        <div class="option">A. Store data temporarily</div>
+                        <div class="option">B. Control program flow</div>
+                        <div class="option">C. Perform arithmetic and logical operations</div>
+                        <div class="option">D. Manage memory access</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-number">7. Which generation of computers used integrated circuits (ICs)?</div>
+                    <div class="options">
+                        <div class="option">A. First generation</div>
+                        <div class="option">B. Second generation</div>
+                        <div class="option">C. Third generation</div>
+                        <div class="option">D. Fourth generation</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-number">8. What does the term "clock speed" measure in a computer processor?</div>
+                    <div class="options">
+                        <div class="option">A. Number of bits per instruction</div>
+                        <div class="option">B. Number of cycles per second</div>
+                        <div class="option">C. Number of threads</div>
+                        <div class="option">D. Number of cores</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <div class="question-number">9. Which of the following is an example of an output device?</div>
+                    <div class="options">
+                        <div class="option">A. Keyboard</div>
+                        <div class="option">B. Mouse</div>
+                        <div class="option">C. Printer</div>
+                        <div class="option">D. Microphone</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="watermark">
+        <div class="watermark-text">ENGINEERING MADE EASY</div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo-section">
+                <div class="footer-logo">EME</div>
+                <div class="footer-links">
+                    <a href="#">Logout</a>
+                    <a href="#">Home</a>
+                    <a href="#">What we offer</a>
+                    <a href="#">Faculties</a>
+                </div>
+            </div>
+            <div class="social-icons">
+                <div class="social-icon">𝕏</div>
+                <div class="social-icon">📞</div>
+                <div class="social-icon">✉️</div>
+                <div class="social-icon">📷</div>
+                <div class="social-icon">💼</div>
+                <div class="social-icon">🌐</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © Engineering Made Easy 2025
+        </div>
+    </footer>
+
+    <script>
+        // Add click event listeners to all options
+        document.querySelectorAll('.question-item').forEach(questionItem => {
+            const options = questionItem.querySelectorAll('.option');
+            
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options in this question
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

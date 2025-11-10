@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EME - Past Questions</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:"Libre Baskerville", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #b1b1b1ff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #1e3a5f 0%, #2563eb 100%);
+            padding: 3px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            
+            cursor: pointer;
+            
+        }
+
+              .profile {
+            border-radius: 50%;
+            border: 2px #b1b1b1ff solid;
+        }
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .back-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            color: #1e3a5f;
+        }
+
+        .page-title-section {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .page-title-section h1 {
+            color: #1e3a5f;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .page-title-section p {
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .explore-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .explore-btn:hover {
+            background: #2563eb;
+        }
+
+        /* Questions Container */
+        .questions-container {
+            background: rgba(230, 227, 227, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-title {
+            color: #1e3a5f;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+
+        .handout-box {
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .handout-box p{
+            text-align: justify;
+        }
+
+        .handout-box h2{
+            margin-bottom: 1rem;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: relative;
+            text-align: center;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+
+        .watermark-text {
+            font-size: 80px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1);
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+       
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .page-title-section h1 {
+                font-size: 24px;
+            }
+
+            .questions-container {
+                padding: 25px;
+            }
+
+            .handout-box {
+                padding: 20px;
+                text-align
+            }
+
+            .course-title {
+                font-size: 20px;
+            }
+
+            .watermark-text {
+                font-size: 50px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .page-title-section {
+                margin-left: 0;
+            }
+
+            .explore-btn {
+                width: 100%;
+            }
+
+            .questions-container {
+                padding: 20px;
+            }
+
+            .watermark-text {
+                font-size: 30px;
+                letter-spacing: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+          <div class="logo"><img class="eme-logo" style="width: 3.25em; height: 3.25em" src="../logo/eme logo.png"></div>
+        <div class="header-icons">
+            <div class="icon-btn" onclick="location.href='handout_selection.html'"><img class="home" style="width: 2em; height: 2.25em" src="../images/Icons/home.png"></div>
+            <div class="icon-btn"><img class="notifications" style="width: 2em; height: 2em" src="../images/Icons/bell.png"></div>
+            <div class="icon-btn" id="profile" onclick="location.href='profile.html'"><img class="profile" style="width: 2em; height: 2em" src="../images/Icons/profile.png"></div>
+        </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="back-btn" onclick="location.href='handout_selection.html'">‹</div>
+            <div class="page-title-section">
+                <h1>My Course Work</h1>
+                <p>Your engineering journey starts here</p>
+            </div>
+            <button class="explore-btn">Explore more courses</button>
+        </div>
+
+        <div class="questions-container">
+            <h2 class="course-title">CPE 101 - Introduction to Computer Engineering</h2>
+            
+            <div class="handout-box">
+                <h2>Embedded Sytems</h2>
+                <p>
+                    An embedded system is a specialized computing system that combines hardware and software to perform a specific function or set of functions within a larger 
+                    mechanical or electrical system. Unlike general-purpose computers, such as desktops or laptops, which are designed to handle a wide range of tasks, embedded 
+                    systems are dedicated to particular applications. They are often integrated into devices that we use in our daily lives, including washing machines, mobile phones, 
+                    automobiles, smart watches, and medical devices.
+                </p>
+                <br>
+                <p>
+                    Embedded systems are characterized by their reliability, compactness, efficiency, and real-time operation. They are built to perform their assigned tasks accurately
+                    and consistently, often under strict time constraints. A typical embedded system operates continuously for long periods, which makes stability and durability essential qualities.
+                    These systems are also designed to be resource-efficient, as they usually have limited processing power, memory, and storage capacity compared to general-purpose systems.
+                </p>
+                <br>
+                <p>
+                    An embedded system generally consists of two main components: hardware and software. The hardware component includes a microcontroller or microprocessor, which serves as the 
+                    brain of the system and executes instructions. It also includes memory units such as ROM (for program storage) and RAM (for temporary data), along with input and output devices 
+                    like sensors, actuators, and displays. The software component, often referred to as firmware, provides the instructions that control the hardware. In more complex systems, a 
+                    Real-Time Operating System (RTOS) may be used to manage tasks and ensure timely responses to inputs.
+                </p>
+        </div>
+
+    </main>
+
+    <div class="watermark">
+        <div class="watermark-text">ENGINEERING MADE EASY</div>
+    </div>
+
+   
+</body>
+</html>

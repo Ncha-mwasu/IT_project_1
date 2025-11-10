@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EME</title>
+    <link rel="stylesheet" href="home_style.css">
+
+    <!--Font importation (Fugaz One)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo"><img class="eme-logo" style="width: 5.25em; height: 5.25em" src="../logo/eme logo.png"></div>
+    <div class="header-icons">
+        <div class="icon-btn" onclick="location.href='home_page.html'"><img class="home" style="width: 2em; height: 2em" src="../images/Icons/home.png"></div>
+        <div class="icon-btn" id="notification-btn">
+            <img class="notifications" style="width: 2em; height: 2em" src="../images/Icons/bell.png">
+            <span class="notification-badge" id="notification-count">0</span>
+        </div>
+
+        <div class="icon-btn" id="profile" onclick="location.href='profile.html'"><img class="profile" style="width: 2em; height: 2em" src="../images/Icons/profile.png"></div>
+    </div>
+</header>
+
+<!-- Notification Popup -->
+<div class="notification-popup" id="notification-popup">
+    <div class="notification-header">
+        <h3>Notifications</h3>
+        <button class="clear-all-btn" id="clear-all">Clear All</button>
+    </div>
+    <div class="notification-list" id="notification-list">
+        <div class="empty-notifications">No notifications</div>
+    </div>
+</div>
+
+    <main>
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="welcome-text">
+                    <h1>Welcome <span class="user">User</span></h1>
+                    <p>Your engineering journey starts here</p>
+                </div>
+                <button class="explore-btn" onclick="location.href='department_selection page.html'">Explore more courses</button>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="grid-layout">
+                <!-- Quick Access Panel -->
+                <div class="panel">
+                    <h2>Quick Access</h2>
+                    
+                    <div class="quick-icons">
+                        <button class="quick-icon-btn" onclick="location.href='handout_selection.html'">
+                            <div class="icon-circle" href=""><img src="../images/Icons/book-education_.png"></div>
+                            <span>My courses</span>
+                        </button>
+                        <button class="quick-icon-btn" onclick="location.href='pq_selection_page.html'">
+                            <div class="icon-circle" ><img src="../images/Icons/survey-questions_.png"></div>
+                            <span>Past Questions</span>
+                        </button>
+                        <button class="quick-icon-btn" id="community-btn">
+                            <div class="icon-circle"><img src="../images/Icons/people-community-28-filled_.png"></div>
+                            <span>My community</span>
+                        </button>
+                    </div>
+
+                    <div class="category-list">
+                        <button class="category-btn">
+                            <div class="category-icon"><img id="cat-icon" src="../images/Icons/transformer_.png"></div>
+                            <div class="category-text">
+                                <div class="title">Electrical Engineering <br> and Technology</div>
+                                
+                            </div>
+                        </button>
+                        <button class="category-btn">
+                            <div class="category-icon"><img id="cat-icon" src="../images/Icons/laptop_.png"></div>
+                            <div class="category-text">
+                                <div class="title">Computer Engineering</div>
+                            </div>
+                        </button>
+                        <button class="category-btn">
+                            <div class="category-icon"><img id="cat-icon" src="../images/Icons/level-end-flag_.png"></div>
+                            <div class="category-text">
+                                <div class="title">100 level</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Performance Chart -->
+                    <div class="panel">
+                        <h2 class="perf-text">My Performance</h2>
+                        <div class="chart-container">
+                            <svg id="performanceChart" viewBox="0 0 400 200" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.6" />
+                                        <stop offset="100%" stop-color="#93C5FD" stop-opacity="0.1" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Grid lines -->
+                                <line x1="40" y1="40" x2="380" y2="40" stroke="#0c1b3aff" stroke-width="1" />
+                                <line x1="40" y1="100" x2="380" y2="100" stroke="#0c1b3aff" stroke-width="1" />
+                                <line x1="40" y1="160" x2="380" y2="160" stroke="#0c1b3aff" stroke-width="1" />
+                                
+                                <!-- Y-axis labels -->
+                                <text x="25" y="45" font-size="16" fill="#0c1b3aff" style="margin-right: 1rem">100</text>
+                                <text x="30" y="105" font-size="16" fill="#0c1b3aff" style="margin-right: 1rem">50</text>
+                                <text x="30" y="165" font-size="16" fill="#0c1b3aff" style="margin-right: 1rem">30</text>
+                                
+                                <!-- Area path -->
+                                <path d="M 40,115 L 90,96 L 140,104 L 190,70 L 240,58 L 290,62 L 340,45 L 340,180 L 40,180 Z" fill="url(#gradient)" />
+                                
+                                <!-- Line path -->
+                                <path d="M 40,115 L 90,96 L 140,104 L 190,70 L 240,58 L 290,62 L 340,45" fill="none" stroke="#3B82F6" stroke-width="3" />
+                                
+                                <!-- Data points -->
+                                <circle cx="40" cy="115" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="90" cy="96" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="140" cy="104" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="190" cy="70" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="240" cy="58" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="290" cy="62" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="340" cy="45" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Recent Courses -->
+                    <div class="panel">
+                        <h2 class="perf-text">Recent Courses</h2>
+                        <div class="course-list">
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">GST 111: Nigerian People and Culture</span>
+                                    <span class="course-progress-text">50%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">MAT 111: Introduction to Calculus</span>
+                                    <span class="course-progress-text">30%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">CPE 101: Introduction to Computer Engineering</span>
+                                    <span class="course-progress-text">25%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 25%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Watermark -->
+    <div class="watermark">
+        <div class="watermark-text">ENGINEERING MADE EASY</div>
+    </div>
+
+
+    <script>
+        // Add smooth animations on page load
+        const notificationBtn = document.getElementById('notification-btn');
+        const notificationPopup = document.getElementById('notification-popup');
+        const notificationList = document.getElementById('notification-list');
+        const notificationCount = document.getElementById('notification-count');
+        const clearAllBtn = document.getElementById('clear-all');
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.progress-bar-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+
+            // Add click handlers to buttons
+            const exploreBtn = document.querySelector('#community-btn');
+            exploreBtn.addEventListener('click', () => {
+                alert('Community is coming soon');
+            });
+
+            // Quick access buttons
+            // const quickBtns = document.querySelectorAll('.quick-icon-btn');
+            // quickBtns.forEach((btn, index) => {
+            //     btn.addEventListener('click', () => {
+            //         const labels = ['My courses', 'Past Questions', 'My community'];
+            //         alert(`Opening ${labels[index]}...`);
+            //     });
+            // });
+
+            // Category buttons
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const title = btn.querySelector('.title').textContent;
+                    alert(`Opening ${title}...`);
+                });
+            });
+        });
+
+        // Notification System
+        const MAX_NOTIFICATIONS = 10;
+        let notifications = [];
+
+                // Toggle notification popup
+        notificationBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notificationPopup.classList.toggle('active');
+            markAllAsRead();
+        });
+
+        // Close popup when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!notificationPopup.contains(e.target) && !notificationBtn.contains(e.target)) {
+                notificationPopup.classList.remove('active');
+            }
+        });
+
+        // Add new notification
+        function addNotification(title, message) {
+            const notification = {
+                id: Date.now(),
+                title: title,
+                message: message,
+                time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+                unread: true
+            };
+
+            // If we have 10 notifications, remove the oldest one
+            if (notifications.length >= MAX_NOTIFICATIONS) {
+                notifications.shift(); // Remove first (oldest) notification
+            }
+
+            // Add new notification to the end
+            notifications.push(notification);
+
+            updateNotificationUI();
+        }
+
+        // Update notification UI
+        function updateNotificationUI() {
+            const unreadCount = notifications.filter(n => n.unread).length;
+
+            // Update badge
+            if (unreadCount > 0) {
+                notificationCount.textContent = unreadCount;
+                notificationCount.style.display = 'flex';
+            } else {
+                notificationCount.style.display = 'none';
+            }
+
+            // Update notification list
+            if (notifications.length === 0) {
+                notificationList.innerHTML = '<div class="empty-notifications">No notifications</div>';
+            } else {
+                notificationList.innerHTML = notifications.map(n => `
+            <div class="notification-item ${n.unread ? 'unread' : ''}" data-id="${n.id}">
+                <div class="notification-content">
+                    <div class="notification-text">
+                        <div class="notification-title">${n.title}</div>
+                        <div class="notification-message">${n.message}</div>
+                    </div>
+                    <div class="notification-time">${n.time}</div>
+                </div>
+            </div>
+        `).reverse().join(''); // Reverse to show newest first
+            }
+        }
+
+        // Mark all as read
+        function markAllAsRead() {
+            notifications.forEach(n => n.unread = false);
+            updateNotificationUI();
+        }
+
+        // Clear all notifications
+        clearAllBtn.addEventListener('click', () => {
+            notifications = [];
+            updateNotificationUI();
+        });
+
+        // Demo: Add sample notifications (remove this in production)
+        setTimeout(() => addNotification('Course Update', 'New assignment posted for EET 301'), 1000);
+        setTimeout(() => addNotification('Reminder', 'Lab session tomorrow at 9:00 AM'), 2000);
+        setTimeout(() => addNotification('Grade Posted', 'Your midterm results are now available'), 3000);
+
+        // Demo: Simulate adding notifications over time (remove this in production)
+        let demoCounter = 4;
+        const demoInterval = setInterval(() => {
+            if (demoCounter <= 12) {
+                addNotification(`Notification ${demoCounter}`, `This is test notification number ${demoCounter}`);
+                demoCounter++;
+            } else {
+                clearInterval(demoInterval);
+            }
+        }, 4000);
+    </script>
+</body>
+</html>

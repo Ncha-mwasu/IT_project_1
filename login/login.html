@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EME</title>
+    <link rel="stylesheet" href="login_style.css">
+
+    <!--Font importation (Fugaz One)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section class="hero">
+<div class="login-card">
+    <header class="login-header">Login</header>
+    <form class="login-form" id="loginForm" method="post">
+
+    <label class="label1" for="email">Email</label><br>
+    <input type="email" id="email" style="text-align: center;" name="user_email" placeholder="your@example.com" required><br><br>
+
+    <label class="label2" for="Password">Password</label><br>
+    <input type="password" style="text-align: center;" id="password" name="password" placeholder="******" required><br><br>
+
+    <button class="login-button" type="submit" > Login </button>
+    <div class="signup-link">Do not have an account? <a href="../signup/signup.html">Sign up</a> </div>
+</form>
+</div>
+
+</section>
+<script src="script.js"></script>
+</body>
+</html>

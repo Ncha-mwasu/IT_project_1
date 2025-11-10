@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Made Easy - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #e5e7eb;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .container {
+            background: #f3f4f6;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .welcome-text h1 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-text .user {
+            color: #3b82f6;
+        }
+
+        .welcome-text p {
+            color: #6b7280;
+        }
+
+        .explore-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+        }
+
+        .explore-btn:hover {
+            background: #2563eb;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .grid-layout {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        /* Quick Access Panel */
+        .panel {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            border: 2px solid #60a5fa;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .panel h2 {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-icons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-icon-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .quick-icon-btn:hover {
+            background: #eff6ff;
+        }
+
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            background: #dbeafe;
+            border: 2px solid #60a5fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-size: 1.75rem;
+        }
+
+        .quick-icon-btn span {
+            font-size: 0.75rem;
+            color: #374151;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .category-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover {
+            background: #dbeafe;
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            background: #bfdbfe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e40af;
+            font-size: 1.5rem;
+        }
+
+        .category-text {
+            text-align: left;
+        }
+
+        .category-text .title {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 0.875rem;
+        }
+
+        .category-text .subtitle {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        /* Right Column */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Performance Chart */
+        .chart-container {
+            position: relative;
+            height: 250px;
+            margin-top: 1rem;
+        }
+
+        #performanceChart {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Recent Courses */
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .course-item {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .course-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-name {
+            font-weight: 500;
+            color: #1f2937;
+            font-size: 0.875rem;
+        }
+
+        .course-progress-text {
+            font-weight: 700;
+            color: #374151;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #2563eb;
+            border-radius: 1rem;
+            transition: width 0.5s ease;
+        }
+
+        /* Watermark */
+        .watermark {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .watermark-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #d1d5db;
+            opacity: 0.3;
+            letter-spacing: 0.2em;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #1e3a8a, #1d4ed8);
+            color: white;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-link {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
+            text-align: left;
+        }
+
+        .footer-link:hover {
+            color: #93c5fd;
+        }
+
+        .footer-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: white;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-icon-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            width: 100%;
+            margin-top: 1.5rem;
+            color: #bfdbfe;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-text h1 {
+                font-size: 1.75rem;
+            }
+
+            .watermark-text {
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">EMS</div>
+            <div class="header-icons">
+                <button class="icon-btn">🏠</button>
+                <button class="icon-btn">🔔</button>
+                <button class="icon-btn">👤</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="welcome-text">
+                    <h1>Welcome <span class="user">User</span></h1>
+                    <p>Your engineering journey starts here</p>
+                </div>
+                <button class="explore-btn">Explore more courses</button>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="grid-layout">
+                <!-- Quick Access Panel -->
+                <div class="panel">
+                    <h2>Quick Access</h2>
+                    
+                    <div class="quick-icons">
+                        <button class="quick-icon-btn">
+                            <div class="icon-circle">📚</div>
+                            <span>My courses</span>
+                        </button>
+                        <button class="quick-icon-btn">
+                            <div class="icon-circle">❓</div>
+                            <span>Past Questions</span>
+                        </button>
+                        <button class="quick-icon-btn">
+                            <div class="icon-circle">👥</div>
+                            <span>My community</span>
+                        </button>
+                    </div>
+
+                    <div class="category-list">
+                        <button class="category-btn">
+                            <div class="category-icon">⚡</div>
+                            <div class="category-text">
+                                <div class="title">Electrical Engineering</div>
+                                <div class="subtitle">and Technology</div>
+                            </div>
+                        </button>
+                        <button class="category-btn">
+                            <div class="category-icon">💻</div>
+                            <div class="category-text">
+                                <div class="title">Computer Engineering</div>
+                            </div>
+                        </button>
+                        <button class="category-btn">
+                            <div class="category-icon">📊</div>
+                            <div class="category-text">
+                                <div class="title">100 level</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Performance Chart -->
+                    <div class="panel">
+                        <h2>My Performance</h2>
+                        <div class="chart-container">
+                            <svg id="performanceChart" viewBox="0 0 400 200" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.6" />
+                                        <stop offset="100%" stop-color="#93C5FD" stop-opacity="0.1" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Grid lines -->
+                                <line x1="40" y1="40" x2="380" y2="40" stroke="#E5E7EB" stroke-width="1" />
+                                <line x1="40" y1="100" x2="380" y2="100" stroke="#E5E7EB" stroke-width="1" />
+                                <line x1="40" y1="160" x2="380" y2="160" stroke="#E5E7EB" stroke-width="1" />
+                                
+                                <!-- Y-axis labels -->
+                                <text x="25" y="45" font-size="12" fill="#6B7280">100</text>
+                                <text x="30" y="105" font-size="12" fill="#6B7280">50</text>
+                                <text x="30" y="165" font-size="12" fill="#6B7280">30</text>
+                                
+                                <!-- Area path -->
+                                <path d="M 40,115 L 90,96 L 140,104 L 190,70 L 240,58 L 290,62 L 340,45 L 340,180 L 40,180 Z" fill="url(#gradient)" />
+                                
+                                <!-- Line path -->
+                                <path d="M 40,115 L 90,96 L 140,104 L 190,70 L 240,58 L 290,62 L 340,45" fill="none" stroke="#3B82F6" stroke-width="3" />
+                                
+                                <!-- Data points -->
+                                <circle cx="40" cy="115" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="90" cy="96" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="140" cy="104" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="190" cy="70" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="240" cy="58" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="290" cy="62" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                                <circle cx="340" cy="45" r="5" fill="#3B82F6" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Recent Courses -->
+                    <div class="panel">
+                        <h2>Recent Courses</h2>
+                        <div class="course-list">
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">GST 111: Nigerian People and Culture</span>
+                                    <span class="course-progress-text">50%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">MAT 111: Introduction to Calculus</span>
+                                    <span class="course-progress-text">30%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">CPE 101: Introduction to Computer Engineering</span>
+                                    <span class="course-progress-text">25%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 25%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Watermark -->
+    <div class="watermark">
+        <div class="watermark-text">ENGINEERING MADE EASY</div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">EMS</div>
+            
+            <div class="footer-links">
+                <button class="footer-link">Logout</button>
+                <button class="footer-link">Home</button>
+                <button class="footer-link">What we offer</button>
+                <button class="footer-link">Faculties</button>
+            </div>
+
+            <div class="footer-icons">
+                <button class="footer-icon-btn">✕</button>
+                <button class="footer-icon-btn">📞</button>
+                <button class="footer-icon-btn">✉</button>
+                <button class="footer-icon-btn">📷</button>
+                <button class="footer-icon-btn">in</button>
+                <button class="footer-icon-btn">?</button>
+            </div>
+        </div>
+        <div class="footer-copyright">© Engineering Made Easy 2025</div>
+    </footer>
+
+    <script>
+        // Add smooth animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.progress-bar-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+
+            // Add click handlers to buttons
+            const exploreBtn = document.querySelector('.explore-btn');
+            exploreBtn.addEventListener('click', () => {
+                alert('Explore more courses feature coming soon!');
+            });
+
+            // Quick access buttons
+            const quickBtns = document.querySelectorAll('.quick-icon-btn');
+            quickBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    const labels = ['My courses', 'Past Questions', 'My community'];
+                    alert(`Opening ${labels[index]}...`);
+                });
+            });
+
+            // Category buttons
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const title = btn.querySelector('.title').textContent;
+                    alert(`Opening ${title}...`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

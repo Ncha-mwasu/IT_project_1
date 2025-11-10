@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Libre Baskerville', San-serif;
+    font-weight: 400;
+    color: white;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(90deg, #14304D 0%, #1B3173A8 99%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    padding: 30px 60px 60px 60px;
+    border-radius: 30px;
+    background: #0C183B;
+   
+}
+
+.login-header{
+    text-align: center;
+    font-family: 'Fugaz One';
+    font-size: 48px;
+    margin-top: 66px;
+}
+
+.login-form{
+    text-align: center;
+    margin-top: 46px;
+}
+
+label {
+    font-size: 24px;
+    margin-top: 74px;
+}
+
+.label1 {
+    margin-top: 139px;
+}
+
+input{
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 12px;
+    font-size: 18px;
+    color: white;
+}
+
+.login-button{
+    background: #689CDD;
+    color: white;
+    font-size: 20px;
+    font-family: 'Fugaz One', 'Libre Baskerville', San-serif, serif;
+    font-weight: 500;
+    opacity: 100%;
+    margin-top: 10px;
+    padding: 3px 9rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+
+}
+
+.login-button:hover  {
+    background: #713FE0;
+    transform: scale(1.05); /* Slightly enlarge the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type="email"],
+input[type="password"] {
+    background: rgba(70, 90, 130, 0.6);
+    border: none;
+    border-radius: 15px;
+    padding: 2px 22px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus, select:focus {
+    background: rgba(70, 90, 130, 0.8);
+    color: white;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+input:invalid:focus {
+    border: 2px solid #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+input:valid:focus{
+    border: 2px solid #51cf66;
+}
+
+.signup-link{
+    margin-top: 1rem;
+}
+
+.signup-link a{
+    color: #689CDD;
+    text-decoration: none;
+
+    &:hover{
+    color: #713FE0;}
+}
+
+@media (max-width: 550px) {
+    .login-card {
+        padding: 30px 60px 60px 60px;
+
+
+    }
+    
+}

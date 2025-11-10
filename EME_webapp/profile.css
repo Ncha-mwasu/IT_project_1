@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Libre Baskerville", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #b0b1b1ff;
+    min-height: 100vh;
+    color: white;
+}
+
+/* Header */
+header {
+    background: linear-gradient(89deg, #1e3a5f 0%, #2563eb 100%);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 5.25em;
+    height: 5.25em;
+}
+
+.header-icons {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.icon-btn {
+    width: 39px;
+    height: 39px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn img {
+    width: 2em;
+    height: 2em;
+}
+
+.icon-btn .profile {
+    border-radius: 50%;
+    border: 1px #b1b1b1ff solid;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.profile-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    background: #476FA0;
+    border-radius: 3rem;
+    overflow: hidden;
+}
+
+.profile-image-section {
+    border-right: #3b82f6 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.profile-image-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    background: #ddd;
+}
+
+.profile-image-section .name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-image-section .email {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2.5rem;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-details .bio-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.profile-details .bio-write-up {
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.edit-profile-btn {
+    position: absolute;
+    bottom: 2rem;
+    right: 2.5rem;
+    padding: 0.5rem 2rem;
+    background: #5a8fcf;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.edit-profile-btn:hover {
+    background: #4a7fbf;
+}
+
+.account-settings-card {
+    background: #476FA0;
+    border-radius: 3rem;
+    padding: 2.5rem;
+}
+
+.account-settings-header {
+    margin-bottom: 2rem;
+    font-size: 1.5rem; 
+}
+
+.account-settings {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-settings-card hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0;
+}
+
+.account-settings span:first-child {
+    font-size: 1rem;
+}
+
+.activity-history-btn, .subscribe-btn {
+    padding: 0.5rem 3rem;
+    background: #689CDD;
+    border: none;
+    font-size: 0.9rem;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.activity-history-btn:hover, .subscribe-btn:hover {
+    background: #5a8fcf;
+}
+
+.theme-btn {
+    display: flex;
+    gap: 1rem;
+}
+
+.theme-btn button {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.light-theme {
+    background: #9ec5f5;
+    color: #1e3a5f;
+}
+
+.dark-theme {
+    background: #2c4a6f;
+    color: white;
+}
+
+.light-theme:hover {
+    background: #8eb5e5;
+}
+
+.dark-theme:hover {
+    background: #3c5a7f;
+}
+
+.down-btn {
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.8;
+    user-select: none;
+}
+
+.down-btn:hover {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-card {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image-section {
+        border-right: none;
+        border-bottom: #3b82f6 1px solid;
+    }
+
+    .account-settings {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .edit-profile-btn {
+        position: static;
+        margin-top: 1rem;
+    }
+}

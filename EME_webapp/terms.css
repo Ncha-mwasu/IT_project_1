@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Libre Baskerville', San-serif;
+    font-weight: 400;
+    color: white;
+}
+
+.eme-logo {
+    width: 125px;
+    margin-left: 4rem;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #14304D 50%, #3674BE 70%);
+}
+
+.hero {
+    display: flex;
+    padding: 0 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-header{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.back-button{
+    width: 25px;
+}
+
+.back-button:hover{
+    transform: scale(1.1);
+}
+
+
+.hero h3{
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.hero-body{
+    padding: 4rem 4rem 2rem 4rem;
+    text-align: justify;
+    background: #0C183B;
+    border-radius: 3.5rem;
+    font-size: 78%;
+}

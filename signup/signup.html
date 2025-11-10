@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EME</title>
+    <link rel="stylesheet" href="signup_style.css">
+
+    <!--Font importation (Fugaz One)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section class="hero">
+ <main>
+        <div class="signup-container">
+            <h1>SIGN UP</h1>
+            <form id="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname">First name</label>
+                        <input type="text" id="firstname" placeholder="e.g John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="institution">Institution</label>
+                        <input type="text" id="school" placeholder="Your Institution" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" placeholder="e.g Felix" required>
+                    </div>
+                    <div class="form-group">
+                         <label for="department">Department</label>
+                        <select id="department" required>
+                            <option value="">Select Department</option>
+                            <option value="computer">Computer Engineering</option>
+                            <option value="civil">Civil Engineering</option>
+                            <option value="electrical">Electrical Engineering</option>
+                            <option value="agric">Agric and Bio-Resource Engineering</option>
+                            <option value="mechanical">Mechanical Engineering</option>
+                            <option value="material">Material and Metallurgical Engineering</option>
+                            <option value="mechatronics">Mechatronics Engineering</option>
+                            <option value="telecommunications">Telecommunications Engineering</option>
+                            <option value="chemical">Chemical Engineering</option>
+                            <option value="petroleum">Petroleum and Gas Engineering</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="gender">Email</label>
+                        <input type="email" id="email" placeholder="e.g. johnfelix@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Level</label>
+                        <select id="level" required>
+                            <option value="100-level">100 level</option>
+                            <option value="200-level">200 Level</option>
+                            <option value="300-level">300 level</option>
+                            <option value="400-level">400 level</option>
+                            <option value="500-level">500 level</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="*******" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" placeholder="*******" required>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input class="checkbox" type="checkbox" id="terms" required>
+                    <label class="terms" for="terms">Accept our terms and conditions <a>view</a> </label>
+                </div>
+
+                <a href="../EME_webapp/home_page.html"><button type="submit" class="signup-btn">SIGN UP</button> </a>
+                <div class="login-link">Already have an account? <a href="../login/login.html">Login</a> </div>
+            </form>
+        </div>
+    </main>
+
+    
+
+</section>
+<script src="script.js"></script>
+</body>
+</html>
